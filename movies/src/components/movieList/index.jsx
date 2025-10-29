@@ -3,13 +3,11 @@ import Movie from "../movieCard";
 import Grid from "@mui/material/Grid";
 
 const MovieList = (props) => {
-  let movieCards = props.movies.map(
-    (movie) => (
-      <Grid key={movie.id} xs={12} sm={6} md={4} lg={3}>
-        <Movie movie={movie} />
-      </Grid>
-    )
-  );
+  const movieCards = props.movies.map((movie) => (
+    <Grid item key={movie.id} xs={12} sm={6} md={4} lg={3}>
+      <Movie movie={movie} action={props.action} />
+    </Grid>
+  ));
 
   return (
     <Grid container spacing={2}>
