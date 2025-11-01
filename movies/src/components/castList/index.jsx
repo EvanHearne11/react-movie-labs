@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import { getMovieCredits } from "../../api/tmdb-api";
 import {
@@ -12,6 +13,7 @@ import {
 } from "@mui/material";
 
 const CastList = ({ movieId }) => {
+const navigate = useNavigate();
   const { data, error, isLoading, isError } = useQuery({
     queryKey: ["movieCredits", { id: movieId }],
     queryFn: getMovieCredits,
@@ -35,6 +37,7 @@ const CastList = ({ movieId }) => {
             Director
           </Typography>
           <Card
+          onClick={() => navigate(`/person/${director.id}`)}
             sx={{
               display: "flex",
               alignItems: "center",
@@ -75,10 +78,11 @@ const CastList = ({ movieId }) => {
         {cast?.map((actor) => (
           <Grid item xs={6} sm={4} md={3} key={actor.id}>
             <Card
-              sx={{
-                cursor: "pointer",
-                "&:hover": { transform: "scale(1.05)" },
-                transition: "0.3s",
+           onClick={() => navigate(`/person/${actor.id}`)}
+           sx={{
+              cursor: "pointer",
+              "&:hover": { transform: "scale(1.05)" },
+              transition: "0.3s",
               }}
             >
               <CardMedia
