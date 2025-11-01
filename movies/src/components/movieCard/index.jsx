@@ -13,12 +13,10 @@ import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Grid";
-import img from '../../images/film-poster-placeholder.png'
 import Avatar from '@mui/material/Avatar';
+import img from '../../images/film-poster-placeholder.png';
 
-
-export default function MovieCard({ movie, action }) {
-
+export default function MovieCard({ movie, action }) { 
 
   const { favorites, addToFavorites } = useContext(MoviesContext);
 
@@ -36,7 +34,7 @@ export default function MovieCard({ movie, action }) {
 
   return (
     <Card>
-            <CardHeader
+      <CardHeader
         avatar={
           movie.favorite ? (
             <Avatar sx={{ backgroundColor: 'red' }}>
@@ -61,13 +59,13 @@ export default function MovieCard({ movie, action }) {
       />
       <CardContent>
         <Grid container>
-          <Grid size={{xs: 6}}>
+          <Grid size={{ xs: 6 }}>
             <Typography variant="h6" component="p">
               <CalendarIcon fontSize="small" />
               {movie.release_date}
             </Typography>
           </Grid>
-          <Grid size={{xs: 6}}>
+          <Grid size={{ xs: 6 }}>
             <Typography variant="h6" component="p">
               <StarRateIcon fontSize="small" />
               {"  "} {movie.vote_average}{" "}
@@ -75,7 +73,7 @@ export default function MovieCard({ movie, action }) {
           </Grid>
         </Grid>
       </CardContent>
-           <CardActions disableSpacing>
+      <CardActions disableSpacing>
       
         {action(movie)}
       

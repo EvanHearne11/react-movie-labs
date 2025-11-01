@@ -1,5 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
-import Spinner from '../spinner'
+import React from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -10,9 +9,12 @@ import Paper from "@mui/material/Paper";
 import { Link } from "react-router";
 import { getMovieReviews } from "../../api/tmdb-api";
 import { excerpt } from "../../util";
+import { useQuery } from "@tanstack/react-query";
+import Spinner from '../spinner'
+
 
 export default function MovieReviews({ movie }) {
-    const { data, error, isPending, isError } = useQuery({
+  const { data, error, isPending, isError } = useQuery({
     queryKey: ['reviews', { id: movie.id }],
     queryFn: getMovieReviews,
   });
