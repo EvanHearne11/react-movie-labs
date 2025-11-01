@@ -11,6 +11,7 @@ import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
 import LanguageIcon from "@mui/icons-material/Language";
 import SavingsIcon from '@mui/icons-material/Savings';
+import CastList from "../castList";
 
 const root = {
   display: "flex",
@@ -71,6 +72,7 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         />
         <Chip label={`Released: ${movie.release_date}`} />
       </Paper>
+      <CastList movieId={movie.id} />
 
       <Fab
         color="secondary"
