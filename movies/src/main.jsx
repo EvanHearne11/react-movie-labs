@@ -9,11 +9,12 @@ import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader';
 import MoviesContextProvider from "./contexts/moviesContext";
+import WatchLaterContextProvider from "./contexts/watchLaterContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import TrendingTodayPage from "./pages/trendingTodayPage";
 import TopRatedMoviesPage from "./pages/topRatedMoviesPage";
 import ActorDetailsPage from "./pages/actorDetailsPage";
-
+import WatchLaterPage from "./pages/watchLaterPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -31,8 +32,10 @@ const App = () => {
       <BrowserRouter>
         <SiteHeader />
         <MoviesContextProvider>
+        <WatchLaterContextProvider>
           <Routes>
             <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
+            <Route path ="/movies/watchLater" element= {<WatchLaterPage/>} />
             <Route path="/reviews/:id" element={<MovieReviewPage />} />
             <Route path="/reviews/form" element={<AddMovieReviewPage />} />
             <Route path="/movies/:id" element={<MoviePage />} />
@@ -42,6 +45,7 @@ const App = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
+          </WatchLaterContextProvider>
         </MoviesContextProvider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />

@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import PageTemplate from "../components/templateMovieListPage";
 import Spinner from "../components/spinner";
 import AddToFavoritesIcon from "../components/cardIcons/addToFavorites";
+import AddToWatchLaterIcon from "../components/cardIcons/addToWatchLater";
 import { getTopRatedMovies } from "../api/tmdb-api";
 
 const TopRatedMoviesPage = () => {
@@ -20,7 +21,13 @@ const TopRatedMoviesPage = () => {
     <PageTemplate
       title="Top Rated Movies"
       movies={movies}
-      action={(movie) => <AddToFavoritesIcon movie={movie} />}
+      action={(movie) => (
+  <>
+    <AddToFavoritesIcon movie={movie} />
+    <AddToWatchLaterIcon movie={movie} />
+  </>
+)}
+
     />
   );
 };

@@ -4,6 +4,7 @@ import PageTemplate from '../components/templateMovieListPage';
 import { useQuery } from '@tanstack/react-query';
 import Spinner from '../components/spinner';
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites';
+import AddToWatchLaterIcon from '../components/cardIcons/addToWatchLater';
 
 
 const TrendingTodayPage = (props) => {
@@ -32,8 +33,13 @@ const TrendingTodayPage = (props) => {
     <PageTemplate
       title="Trending Today"
       movies={movies}
-      action={(movie) => {return <AddToFavoritesIcon movie={movie} />
-      }}
+     action={(movie) => (
+  <>
+    <AddToFavoritesIcon movie={movie} />
+    <AddToWatchLaterIcon movie={movie} />
+  </>
+)}
+
     />
   );
 
