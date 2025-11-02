@@ -6,6 +6,7 @@ import { getMovie } from "../api/tmdb-api";
 import Spinner from '../components/spinner';
 import RemoveFromFavorites from "../components/cardIcons/removeFromFavorites";
 import WriteReview from "../components/cardIcons/writeReview";
+import { Box } from "@mui/material";
 
 
 const FavoriteMoviesPage = () => {
@@ -36,6 +37,7 @@ const FavoriteMoviesPage = () => {
   const toDo = () => true;
 
   return (
+    <Box sx={{ backgroundColor: '#810711ff', minHeight: '100vh', paddingTop: '80px' }}>
     <PageTemplate
       title="Favorite Movies"
       movies={movies}
@@ -48,6 +50,7 @@ const FavoriteMoviesPage = () => {
         );
       }}
     />
+    </Box>
   );
 
 };

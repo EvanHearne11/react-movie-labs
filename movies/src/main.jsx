@@ -16,6 +16,9 @@ import TopRatedMoviesPage from "./pages/topRatedMoviesPage";
 import ActorDetailsPage from "./pages/actorDetailsPage";
 import WatchLaterPage from "./pages/watchLaterPage";
 
+
+
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -28,7 +31,9 @@ const queryClient = new QueryClient({
 
 const App = () => {
   return (
+    
     <QueryClientProvider client={queryClient}>
+ 
       <BrowserRouter>
         <SiteHeader />
         <MoviesContextProvider>
@@ -48,7 +53,9 @@ const App = () => {
           </WatchLaterContextProvider>
         </MoviesContextProvider>
       </BrowserRouter>
+  
       <ReactQueryDevtools initialIsOpen={false} />
+
     </QueryClientProvider>
   );
 };

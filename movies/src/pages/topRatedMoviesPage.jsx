@@ -5,6 +5,7 @@ import Spinner from "../components/spinner";
 import AddToFavoritesIcon from "../components/cardIcons/addToFavorites";
 import AddToWatchLaterIcon from "../components/cardIcons/addToWatchLater";
 import { getTopRatedMovies } from "../api/tmdb-api";
+import { Box } from "@mui/material";
 
 const TopRatedMoviesPage = () => {
   const { data, error, isPending, isError } = useQuery({
@@ -18,7 +19,9 @@ const TopRatedMoviesPage = () => {
   const movies = data?.results ?? [];
 
   return (
+    <Box sx={{ backgroundColor: '#202136ff', minHeight: '100vh', paddingTop: '80px' }}>
     <PageTemplate
+    
       title="Top Rated Movies"
       movies={movies}
       action={(movie) => (
@@ -29,6 +32,7 @@ const TopRatedMoviesPage = () => {
 )}
 
     />
+    </Box>
   );
 };
 

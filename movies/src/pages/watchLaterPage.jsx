@@ -5,6 +5,7 @@ import { useQueries } from "@tanstack/react-query";
 import { getMovie } from "../api/tmdb-api";
 import Spinner from "../components/spinner";
 import RemoveFromWatchLater from "../components/cardIcons/removeFromWatchLater";
+import { Box } from "@mui/material";
 
 const WatchLaterMoviesPage = () => {
   const { watchLater: movieIds } = useContext(WatchLaterContext);
@@ -27,11 +28,13 @@ const WatchLaterMoviesPage = () => {
   const toDo = () => true;
 
   return (
+    <Box sx={{ backgroundColor: '#202136ff', minHeight: '100vh', paddingTop: '80px' }}>
     <PageTemplate
       title="Watch Later"
       movies={movies}
       action={(movie) => <RemoveFromWatchLater movie={movie} />}
     />
+    </Box>
   );
 };
 

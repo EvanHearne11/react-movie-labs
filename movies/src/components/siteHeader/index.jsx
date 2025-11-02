@@ -42,10 +42,14 @@ const SiteHeader = () => {
 
   return (
     <>
-      <AppBar position="fixed" color="secondary">
+      <AppBar position="fixed" 
+      sx={{
+        backgroundColor: '#1A1D23',
+        color: '#FFFFFF'
+      }}>
         <Toolbar>
           <Typography variant="h4" sx={{ flexGrow: 1 }}>
-            TMDB Client
+            Evan Hearne Movie Client
           </Typography>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             All you ever wanted to know about Movies!
